@@ -1,8 +1,10 @@
 #Light Roast
-##Basic algorithms and Data Structures
+####Basic algorithms and Data Structures
 (So I can learn and review them in a productive way)
 
-###Algorithms
+##Algorithms
+All algorithms are properties of LightRoast.Algorithms
+
 ####quicksort(list)
 
 ####mergesort(list)
@@ -24,19 +26,23 @@
 ####prim(graph)
 
 
-###Data Structures
+##Data Structures
+All data structures are namespaced on LightRoast
 
-####HashTable()
+###HashTable()
+Array implementation
+####insert(key, value)
+####find(key)
 
-####Heap()
+###LinkedList()
 
-####BinaryTree()
+###Tree(n)
 
-####LinkedList()
+###Heap()
 
-####Tree(n)
+###BinaryTree()
 
-####Trie()
+###Trie()
 
-####RedBlackTree
+###RedBlackTree()
 
