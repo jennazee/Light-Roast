@@ -23,7 +23,10 @@ LightRoast.Algorithms =
         pivots.push(el)
       quicksort(lesses).concat(pivots, quicksort(greaters))
 
-
+  ###
+  Average runtime: O(nlogn)
+  Worst case: O(n^2)
+  ###
   mergesort: (list) ->
     if list.length <= 1
       return list
@@ -119,16 +122,87 @@ LightRoast.Algorithms =
           node_q.replaceKey(other, other.dist)
 
   kruskal: (graph) ->
+    MST = []
     clouds = []
     nodes = graph.nodes()
     clouds.push(node) for node in nodes
 
-    
-  union: (root1, root2, forest) ->
+    #sort the edges by weight
+    sorted = @kruskalSortEdges(edges)
+    for edge in sorted
+      node1 = edge.nodes()[0]
+      node2 = edge.nodes()[1]
+      cloud1 = @find(node1)
+      cloud2 = @find(node2)
+      if cloud1 != cloud2
+        MST.push(edge)
+        @union(node1, node2)
+    MST
+
+  union: (root1, root2) ->
+    #Purpose: Helper method for the Union-Find mechanism of Kruskal's Algorithm
+    #Input: Two graph nodes to be put in the same Kruskal's cloud
+    #Output: Nothing, only side effects
+    if root1.rank > root2.rank:
+      root2.cloudParent = root1
+    else if root1.rank < root2.rank
+      root1.cloudParent = root2
+    else
+      root2.cloudParent = root1
+      root1.rank++
 
   find: (node) ->
-    if node is not node.cloudParent
+    #Purpose: Helper method for the Union-Find mechanism of Kruskal's Algorithm; With path compression
+    #Input: Graph node
+    #Output: The Kruskal's cloud the node is in
+    if node != node.cloudParent
       node.cloudParent = @find(x.cloudParent)
-      node.cloudParent
+    node.cloudParent
+
+  kruskalSortEdges: (edges) ->
+    #Purpose: Helper method for sorting edges for Kruskal's Algorithm
+    #Input: Unsorted array of weighted graph edges
+    #Output: Sorted array of weighted graph edges
+    if edges.length <= 1
+      return edges
+    lesses = []
+    greaters = []
+    #I choose time complexity over space complexity. Also, JS has shitty recursion depth.
+    pivots = [edges[Math.floor(list.length/2)]] #best choice for already sorted arrays
+    pivotAmt = pivots[0].weight
+    for edge in edges
+      if edge.weight < pivotAmt
+        lesses.push(edge)
+      else if edge.weight > pivotAmt
+        greaters.push(edge)
+      else
+        pivots.push(edge)
+      quicksort(lesses).concat(pivots, quicksort(greaters))
 
   prim: (graph) ->
+    #Purpose: To return a MST of an inputted graph
+    #Input: weighted, undirected graph G with vertices V
+    #Output: list of edges in MST
+    MST = []
+    nodes = graph.nodes()
+    for node in nodes
+      node.cost = Infinity
+      v.prev = undefined
+    source = nodes[0]
+    source.cost = 0
+    node_q = new PriorityQueue()
+    for node in nodes
+      node_q.insert(node)
+    while not node_q.isEmpty()
+      v = node_q.removeMin()
+      if v.prev != null
+        MST.push(#edge (v, v.prev))
+      incidents = v.incidents()
+      for incident in incidents
+        u = incident.opposite(v)
+        weight = incident.weight
+        if u.cost > weight
+          u.cost = weight
+          u.prev = v
+          node_q.replaceKey(u, weight)
+    MST
