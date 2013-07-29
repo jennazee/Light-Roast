@@ -1,1 +1,2 @@
-class Heap
+class Heap extends Tree
+  constructor: ->

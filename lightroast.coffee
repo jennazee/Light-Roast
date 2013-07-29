@@ -119,5 +119,16 @@ LightRoast.Algorithms =
           node_q.replaceKey(other, other.dist)
 
   kruskal: (graph) ->
+    clouds = []
+    nodes = graph.nodes()
+    clouds.push(node) for node in nodes
+
+    
+  union: (root1, root2, forest) ->
+
+  find: (node) ->
+    if node is not node.cloudParent
+      node.cloudParent = @find(x.cloudParent)
+      node.cloudParent
 
   prim: (graph) ->
