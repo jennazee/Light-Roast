@@ -5,63 +5,64 @@
 ##Algorithms
 All algorithms are properties of LightRoast.Algorithms
 
-`####quicksort(list)`
+####`quicksort(list)`
 
-`####mergesort(list)`
+####`mergesort(list)`
 
-`####BFS(graph)`
+####`BFS(graph)`
 
-`####DFS(graph)`
+####`DFS(graph)`
 
-`####inorder(graph)`
+####`inorder(graph)`
 
-`####postorder(graph)`
+####`postorder(graph)`
 
-`####preorder(graph)`
+####`preorder(graph)`
 
-`####dijkstra(graph)`
+####`dijkstra(graph)`
 
-`####kruskal(graph)`
+####`kruskal(graph)`
 
-`####prim(graph)`
+####`prim(graph)`
 
 
 ##Data Structures
 All data structures are namespaced on LightRoast
 
-`###HashTable()`
+###`HashTable()`
 Array implementation
-`####constructor()`
+####`constructor()`
 Makes an hashtable with 256 buckets
-`####insert(key, value)`
+####`insert(key, value)`
 Insert a key-value pair into the hashtable
-`####find(key)`
+####`find(key)`
 Lookup a value based on its key
-`####hash_function(input)`
+####`hash_function(input)`
 The hash function used in the table
-`####remove(key)`
+####`remove(key)`
 Removes key-value pair from the hashtable ans returns the value
-`####get(key)`
+####`get(key)`
 Returns the value associated with the key without removing it from the hashtable
 
-`###LinkedList()`
+###`LinkedList()`
 
-`###Tree(n)`
-`####root()`
+###`Tree(n)`
+####`root()`
 Returns the node at the root of the tree
-`####isEmpty()`
+####`isEmpty()`
 Returns true if the tree is empty
-`####nodes()`
+####`nodes()`
 Returns an array of the nodes in the tree
 
-`###Heap()`
+###`Heap()`
+Inherits from `Tree`
 
-`###BinaryTree()`
-Inherits from Tree
+###`BinaryTree()`
+Inherits from `Tree`
 
-`###Trie()`
-Inherits from Tree
+###`Trie()`
+Inherits from `Tree`
 
-`###RedBlackTree()`
-Inherits from Tree
+###`RedBlackTree()`
+Inherits from `Tree`
 
