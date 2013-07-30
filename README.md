@@ -29,6 +29,18 @@ All algorithms are properties of LightRoast.Algorithms
 ##Data Structures
 All data structures are namespaced on LightRoast
 
+###`Queue()`
+####`constructor()`
+Makes an empty array-based queue
+####`isEmpty()`
+Returns true if the array is empty
+####`size()`
+Returns the size of the queue
+####`enqueue(obj)`
+Adds an element to the queue
+####`dequeue()
+Returns the first element in the queue
+
 ###`HashTable()`
 Array implementation
 ####`constructor()`
@@ -44,7 +56,11 @@ Removes key-value pair from the hashtable ans returns the value
 ####`get(key)`
 Returns the value associated with the key without removing it from the hashtable
 
+###`LLNode(n)`
+
 ###`LinkedList()`
+
+###`TreeNode(n)`
 
 ###`Tree(n)`
 ####`root()`
@@ -65,4 +81,9 @@ Inherits from `Tree`
 
 ###`RedBlackTree()`
 Inherits from `Tree`
+
+###`Graph()`
+####`root()`
+####`edges()`
+####`nodes()`
 

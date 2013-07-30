@@ -109,7 +109,7 @@ LightRoast.Algorithms =
     for node in nodes
       node_q.insert(node)
 
-    while not node_q.empty()
+    while not node_q.isEmpty()
       curr = node_q.removeMin()
       if curr.dist is Infinity
         break
@@ -125,7 +125,9 @@ LightRoast.Algorithms =
     MST = []
     clouds = []
     nodes = graph.nodes()
-    clouds.push(node) for node in nodes
+    for node in nodes
+      node.rank = 0
+      clouds.push(node)
 
     #sort the edges by weight
     sorted = @kruskalSortEdges(edges)
