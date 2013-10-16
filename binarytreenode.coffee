@@ -1,4 +1,4 @@
-class LightRoast.BinaryTreeNode extend LightRoast.TreeNode
+class LightRoast.BinaryTreeNode extends LightRoast.TreeNode
   constructor: ->
     super
     @left
@@ -8,6 +8,7 @@ class LightRoast.BinaryTreeNode extend LightRoast.TreeNode
     @left
 
   right: ->
+    @right
 
   hasLeft: ->
     @left !== undefined

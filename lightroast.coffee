@@ -77,7 +77,7 @@ LightRoast.Algorithms =
       for child in children
         storage.push(child)
 
-  inorder: (node, funct) ->
+  inorder: (node, f) ->
     #left, parent, right
     if node.left()
       inorder(node.left(), f)
@@ -93,7 +93,7 @@ LightRoast.Algorithms =
       postorder(node.right(), f)
     f.call(this, node)
 
-  preorder: (node, function) ->
+  preorder: (node, f) ->
     #parent, left, right
     f.call(this, node)
     if node.left()

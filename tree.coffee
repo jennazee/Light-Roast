@@ -2,6 +2,7 @@ class LightRoast.Tree
   constructor: ->
     @root
     @size
+    @nodes = []
 
   root: ->
     @root
