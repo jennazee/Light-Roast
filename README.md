@@ -38,7 +38,7 @@ Returns true if the array is empty
 Returns the size of the queue
 ####`enqueue(obj)`
 Adds an element to the queue
-####`dequeue()
+####`dequeue()`
 Returns the first element in the queue
 
 ###`HashTable()`

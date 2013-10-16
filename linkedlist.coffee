@@ -1,1 +1,1 @@
-class LinkedList
+class LightRoast.LinkedList

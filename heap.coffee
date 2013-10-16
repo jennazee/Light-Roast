@@ -1,2 +1,2 @@
-class Heap extends Tree
+class LightRoast.Heap extends LightRoast.Tree
   constructor: ->

@@ -1,0 +1,1 @@
+class LightRoast.BinarySearchTree extends LightRoast.BinaryTree

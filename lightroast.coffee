@@ -55,14 +55,17 @@ LightRoast.Algorithms =
         left = right.slice(1)
     result
 
+  # Time complexity: O(|E| + |V|) since every vertex and every edge will be explored in the worst case
+  # Worst-case space complexity: O(|V|)
   BFS: (graph) ->
     root = graph.root()
     storage = new LightRoast.Queue()
     storage.enqueue(root)
     while !storage.isEmpty()
       node = storage.dequeue()
-      storage.enqueue(node.left())
-      storage.enqueue(node.right())
+      children = node.children()
+      for child in children
+        storage.enqueue(child)
 
   DFS: (graph) ->
     root = graph.root()
@@ -70,8 +73,9 @@ LightRoast.Algorithms =
     storage.push(root)
     while storage.length > 0
       node = storage.pop()
-      storage.push(node.left())
-      storage.push(node.right())
+      children = node.children()
+      for child in children
+        storage.push(child)
 
   inorder: (node, funct) ->
     #left, parent, right
